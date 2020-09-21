@@ -1,23 +1,23 @@
 # place-search
-##Clone
+## Clone
 ```
 git clone https://github.com/whize3/place-search
 ```
 
-##Run
+## Run
 ```
 ./gradlew bootRun
 ```  
 ※application.yml의 spring.api.kakao.rest-api-key를 입력해야 정상적인 실행이 가능
 
-##Access
+## Access
 ```
 http://localhost:8080/view/main - 메인화면
 ```  
 ID: whize3  
 PW: 1234
 
-##OpenSource
+## OpenSource
 |OpenSource| 사용 목적|
 |---|---|
 |bootstrap|html 화면 구현  
