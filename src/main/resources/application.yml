@@ -1,0 +1,42 @@
+server:
+  port: 8080
+logging:
+  level:
+    root: INFO
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    data: classpath:sql/data-h2.sql
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate.hbm2ddl.auto: create-drop
+    showSql: false
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+  h2:
+    console:
+      enabled: true
+  jwt:
+    secret: search!@#\
+  api:
+    kakao:
+      host: https://dapi.kakao.com
+      rest-api-key: #입력
+      authorization: KakaoAK ${spring.api.kakao.rest-api-key}
+      url:
+        keyword: /v2/local/search/keyword.json
+  security:
+    basic:
+      enabled: false
+  redis:
+    host: localhost
+    port: 6379
