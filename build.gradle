@@ -17,6 +17,12 @@ configurations {
         extendsFrom developmentOnly
     }
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.whize.search.Applications'
+    }
+}
 repositories {
     mavenCentral()
 }
@@ -26,7 +32,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'it.ozimov:embedded-redis:0.7.2'
     implementation 'io.springfox:springfox-swagger2:2.9.2'
     implementation 'io.springfox:springfox-swagger-ui:2.9.2'
@@ -36,7 +41,6 @@ dependencies {
     implementation 'com.google.code.gson:gson'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'mysql:mysql-connector-java'
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.security:spring-security-test'
