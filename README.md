@@ -6,6 +6,7 @@ git clone https://github.com/whize3/place-search
 
 ## Run
 ```
+cd search
 ./gradlew bootRun
 ```  
 ※application.yml의 spring.api.kakao.rest-api-key를 입력해야 정상적인 실행이 가능
