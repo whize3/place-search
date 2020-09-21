@@ -4,9 +4,10 @@ import com.whize.search.entity.Keyword;
 import com.whize.search.model.response.ListResult;
 import com.whize.search.model.response.SingleResult;
 import com.whize.search.model.search.KaKaoKeyword;
+import com.whize.search.model.search.PlaceSource;
 import com.whize.search.service.KeywordService;
 import com.whize.search.service.ResponseService;
-import com.whize.search.service.SearchService;
+import com.whize.search.service.KakaoSearchService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,15 +25,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class SearchController {
 
-    private final SearchService searchService;
+    private final KakaoSearchService searchService;
     private final ResponseService responseService;
     private final KeywordService keywordService;
 
 
     @GetMapping("/search/keyword")
-    SingleResult<KaKaoKeyword> keyword(@RequestParam String query, @RequestParam(required = false) Integer page){
+    SingleResult<PlaceSource> keyword(@RequestParam String query, @RequestParam(required = false) Integer page){
         keywordService.updateKeyword(query);
-        return responseService.getSingleResult(searchService.keyword(query, page));
+        return responseService.getSingleResult(searchService.getSource(query, page));
     }
 
     @GetMapping("/search/keyword/rank")

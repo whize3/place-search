@@ -22,7 +22,7 @@ public class KeywordService {
 
     @Transactional
     public void updateKeyword(String query) {
-        log.error("조회수 업데이트: "+query);
+        log.debug("조회수 업데이트: "+query);
         Keyword newKeyword = Keyword.builder()
                 .query(query)
                 .hit(1)

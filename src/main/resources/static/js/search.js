@@ -121,14 +121,15 @@ const search = {
         },
         setRank: function (list) {
             let rankHtml = '';
+            let rank = 1;
             for (const element of list) {
                 rankHtml += "<li class='list-group-item list-group-item-action' >" +
                     "<div class='d-flex w-100 justify-content-between'>" +
-                    "<h5 class='mb-1'>" + element.query + "</h5>" +
+                    "<h5 class='mb-1'>" + rank + ". " + element.query + "</h5>" +
                     "<small class='text-muted'>" + element.hit + "</small>" +
                     "</div>" +
-                    "<p class='mb-1'>아무거나</p>" +
                     "</li>";
+                rank ++;
             }
             $("#rank").html(rankHtml);
         }

@@ -2,7 +2,7 @@ package com.whize.search.advice;
 
 import com.whize.search.advice.exception.CApiCallException;
 import com.whize.search.advice.exception.CAuthenticationEntryPointException;
-import com.whize.search.advice.exception.CEmailSigninFailedException;
+import com.whize.search.advice.exception.CSigninFailedException;
 import com.whize.search.advice.exception.CUserNotFoundException;
 import com.whize.search.model.response.CommonResult;
 import com.whize.search.service.ResponseService;
@@ -38,10 +38,10 @@ public class ExceptionAdvice {
         return responseService.getFailResult(Integer.valueOf(getMessage("userNotFound.code")), getMessage("userNotFound.msg"));
     }
 
-    @ExceptionHandler(CEmailSigninFailedException.class)
+    @ExceptionHandler(CSigninFailedException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    protected CommonResult emailSigninFailed(HttpServletRequest request, CEmailSigninFailedException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("emailSigninFailed.code")), getMessage("emailSigninFailed.msg"));
+    protected CommonResult idSigninFailed(HttpServletRequest request, CSigninFailedException e) {
+        return responseService.getFailResult(Integer.valueOf(getMessage("idSigninFailed.code")), getMessage("idSigninFailed.msg"));
     }
 
     @ExceptionHandler(CAuthenticationEntryPointException.class)
